@@ -1,0 +1,95 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="header">
+    <ion-card-header>
+      <ion-card-title>
+        Tus métodos de pago
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Por Defecto -->
+  <ion-list class="defaults_items">
+    <ion-list-header>
+      <span>Método predeterminado</span>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="assets/cash_icon.png" alt="Cash">
+      </ion-thumbnail>
+
+      <ion-label>
+        <h3>Pago en efectivo</h3>
+      </ion-label>
+
+      <ion-radio slot="end" value="1" (ionSelect)="setType(1)" [checked]="otype == 1"></ion-radio>
+    </ion-item>
+    
+    <ion-item *ngIf="paypal_id">
+      <ion-thumbnail slot="start">
+        <img src="assets/paypal_icon.png" alt="Paypal">
+      </ion-thumbnail>
+
+      <ion-label>
+        <h3>PayPal</h3>
+      </ion-label>
+
+      <ion-radio slot="end" value="2" (ionSelect)="setType(2)" [checked]="otype == 2"></ion-radio>
+    </ion-item>
+
+    <ion-item *ngIf="viewCardPred">
+      <ion-thumbnail slot="start">
+        <img src="assets/card_icon.png" alt="Card">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{cardPredClient.card_number}}</h3>
+        <p>{{cardPredClient.brand}}</p>
+        <p>{{cardPredClient.bank_name}}</p>
+      </ion-label>
+
+      <ion-radio slot="end" value="3" (ionSelect)="setType(3)" [checked]="otype == 3"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <!-- Por Defecto -->
+
+  <!-- Tarjetas agregadas -->
+  <ion-list>
+    <ion-list-header>
+      <span>Tarjetas Registradas</span>  
+    </ion-list-header>
+    
+    <img src="assets/add_card.png" alt="add card" *ngIf="maxCards" (click)='addNewCard()' style="max-width: 60%;margin-left:15px;">
+    
+    <ion-item *ngFor="let c of cards">
+      <ion-avatar slot="start">
+        <img src="assets/card_icon.png" alt="Card">
+      </ion-avatar>
+      <ion-label>
+        <h3>{{c.card_number}}</h3>
+        <p>{{c.brand}}</p>
+        <p>{{c.bank_name}}</p>
+        <p>
+          <ion-button (click)="markPred(c.id)" color="success" style="text-transform: capitalize;">
+            <ion-icon name="checkmark" style="font-size: 24px;"></ion-icon>
+            Predeterminada
+          </ion-button>
+          <ion-button (click)="DeleteCard(c.id)" color="danger" style="text-transform: capitalize;">
+            <ion-icon name="trash" style="font-size: 24px;"></ion-icon>
+            Eliminar
+          </ion-button>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <!-- Tarjetas agregadas -->
+
+</ion-content>

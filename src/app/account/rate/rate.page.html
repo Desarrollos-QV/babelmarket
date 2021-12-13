@@ -1,0 +1,211 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+
+  	<ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="type == 'store'">
+      Califica al Comercio
+    </ion-title>
+    
+    <ion-title *ngIf="type == 'staff'">
+      Califica al Repartidor
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+<form #form="ngForm" (ngSubmit)="giveRating(form.value)">
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-subtitle>
+        <small>{{ text.rating_heading }}</small>
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star == 0">
+        <ion-col size="1" (click)="setStar(1)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(2)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(3)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star == 1">
+        <ion-col size="1" (click)="setStar(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(2)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(3)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star == 2">
+        <ion-col size="1" (click)="setStar(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(3)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star == 3">
+        <ion-col size="1" (click)="setStar(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(3)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star == 4">
+        <ion-col size="1" (click)="setStar(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(3)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(4)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star == 5">
+        <ion-col size="1" (click)="setStar(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(3)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(4)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(5)"><ion-icon name="star"></ion-icon></ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="type == 'staff'">
+    
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-label>Calificar la atencion, limpieza y tiempo del servicio de entrega del negocio</ion-label>
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star_staff1 == 0">
+        <ion-col size="1" (click)="setStarS1(1)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(2)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(3)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star_staff1 == 1">
+        <ion-col size="1" (click)="setStarS1(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(2)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(3)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star_staff1 == 2">
+        <ion-col size="1" (click)="setStar(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(3)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStar(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star_staff1 == 3">
+        <ion-col size="1" (click)="setStarS1(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(3)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star_staff1 == 4">
+        <ion-col size="1" (click)="setStarS1(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(3)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(4)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="star_staff1 == 5">
+        <ion-col size="1" (click)="setStarS1(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(3)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(4)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS1(5)"><ion-icon name="star"></ion-icon></ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="type == 'staff'">
+    
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-label>Calificar la presentación, Limpieza y tiempo de servicio de entrega del negocio.</ion-label>
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="staf_staff2 == 0">
+        <ion-col size="1" (click)="setStarS2(1)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(2)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(3)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="staf_staff2 == 1">
+        <ion-col size="1" (click)="setStarS2(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(2)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(3)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="staf_staff2 == 2">
+        <ion-col size="1" (click)="setStarS2(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(3)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="staf_staff2 == 3">
+        <ion-col size="1" (click)="setStarS2(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(3)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(4)"><ion-icon name="star-outline"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="staf_staff2 == 4">
+        <ion-col size="1" (click)="setStarS2(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(3)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(4)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(5)"><ion-icon name="star-outline"></ion-icon></ion-col>
+      </ion-row>
+      
+      <ion-row style="font-size: 25px;color:#533186" *ngIf="staf_staff2 == 5">
+        <ion-col size="1" (click)="setStarS2(1)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(2)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(3)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(4)"><ion-icon name="star"></ion-icon></ion-col>
+        <ion-col size="1" (click)="setStarS2(5)"><ion-icon name="star"></ion-icon></ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <br><br>
+  <ion-item>
+    <ion-textarea ngModel name="comment" placeholder="{{ text.rating_msg }}"></ion-textarea>
+  </ion-item>
+
+  <br>
+  <ion-button color="primary" expand="block" type="submit" [disabled]="form.invalid" mode="ios" size="large">{{ text.rating_button }}</ion-button>
+
+</form>
+
+
+</ion-content>

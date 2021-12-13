@@ -1,0 +1,30 @@
+{
+  "name": "Babel Market",
+  "short_name": "Babel Market",
+  "start_url": "https://babel-market.web.app/",
+  "scope": "https://babel-market.web.app/",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "https://babel-market.web.app/img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://babel-market.web.app/img/splash.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.babel.market",
+      "url": "https://play.google.com/store/apps/details?id=com.babel.market"
+    }
+  ],
+  "default_locale": "en",
+  "display": "standalone",
+  "background_color": "#FFF",
+  "theme_color": "#FFF"
+}

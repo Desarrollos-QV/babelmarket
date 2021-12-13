@@ -1,0 +1,37 @@
+<ion-header no-border>
+<ion-toolbar>
+<ion-title>{{ text.coupon_title }} <ion-button size="small" fill="outline" style="float:right" (click)="closeModal()"><ion-icon name="close" style="font-size: 25px"></ion-icon></ion-button></ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="data">
+
+<ion-list *ngIf="data.length > 0">
+
+  <ion-list-header>
+    {{ text.coupon_heading }}
+  </ion-list-header>
+
+  
+
+  <ion-card *ngFor="let offer of data">
+    <img src="{{offer.img}}" />
+    
+    <ion-card-header>
+      <ion-card-title style="color:green;">Codigo {{offer.code}}</ion-card-title>
+      <ion-card-subtitle>{{offer.desc}}</ion-card-subtitle>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <span *ngIf="offer.min_cart > 0">Aplica en compras mayores a MX{{offer.min_cart | currency}}</span>
+      
+      <ion-button size="small" style="float:right;margin:10px 0;" (click)="applyNow(offer.id)">{{ text.coupon_button }}</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-list>
+
+  <p *ngIf="data.length == 0" style="text-align: center;padding: 10px 10px;font-size: 11px;color:gray;line-height: 2">
+    ¡UPS! No hay cupón de descuento disponible<br /> en este momento para esta tienda 
+  </p>
+ 
+</ion-content>

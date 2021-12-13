@@ -1,0 +1,56 @@
+<ion-header no-border>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+
+<!--Send SMS for otp-->
+<div *ngIf="!verifyCode">
+  <div class="form">
+      <ion-list lines="none">
+          <h1>Ingresa tu número de teléfono móvil</h1>
+          <p class="d-flex ion-text-left" style="font-weight: 500;font-size: 14px;">
+            Recibirás un código SMS de verificación al número telefónico dado
+          </p>
+
+          <ion-item lines="none">
+            <div class="item_inner d-flex">
+              <h3 class="d-flex">
+                <img src="assets/mex.png" alt="mex_flag" style="max-width: 30%;">
+                &nbsp;&nbsp;<ion-label>+52</ion-label>
+              </h3>
+              <ion-input mode="md" #phone pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" clearInput minlength="10" name="phone" type="tel" placeholder="477 123 4567"></ion-input>
+            </div>
+          </ion-item>
+
+          <ion-item class="pc_text">
+            <ion-label>Al continuar acepto los <a href="https://babel-market.com/services/digital-photography/" target="_blank">
+              Términos y Condiciones y Aviso de Privacidad</a> 
+            </ion-label>
+          </ion-item>
+          
+      </ion-list>
+  </div>
+
+  <div style="text-align: center;">
+    <div id="recaptcha-container" style="display: inline-block;"></div>
+  </div> 
+
+  <ion-button class="btn_next" *ngIf="isKeyboardHide" (click)="login()" color="dark" shape="round" style="--border-radius:25px;">
+      Continuar
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+  </ion-button>
+</div>
+<!--Send SMS for otp-->
+</ion-content>
+
+<!--<ion-footer style="padding: 15px;text-align: center;" *ngIf="isKeyboardHide">
+  <ion-label color="medium"  mode="ios" routerLink="/signup" routerDirection="forward">No tienes una cuenta? <b>Registrate</b></ion-label> 
+</ion-footer>-->
